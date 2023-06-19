@@ -6,6 +6,7 @@ export default function Home() {
     const loader = document.getElementById("loader");
     const main_element = document.getElementById("main_element");
     window.addEventListener("keydown", function (event) {
+      //starting
       if (event.key === "Enter") {
         console.log("Game started...");
         loader.innerText = "Loading game...";
@@ -25,7 +26,10 @@ export default function Home() {
         blob.style.color = "black";
         blob.innerText = "Player";
         blob_div.appendChild(blob);
-      } else if (event.key === "d") {
+      }
+
+      //movement
+      else if (event.key === "d") {
         const blob_div = this.document.getElementById("blob_div");
         if (!blob_div) return console.log("Game not started");
         let currentPosition = parseInt(blob_div.style.left, 10);
@@ -37,6 +41,30 @@ export default function Home() {
         let currentPosition = parseInt(blob_div.style.left);
         currentPosition -= 10;
         blob_div.style.left = currentPosition + "px";
+      } else if (event.key === "w") {
+        const blob_div = this.document.getElementById("blob_div");
+        if (!blob_div) return console.log("Game not started");
+        let currentPosition = parseInt(blob_div.style.top);
+        let screenPosition = parseInt(this.window.screenX);
+        if (screenPosition >= currentPosition)
+          return (
+            this.window.location.reload() &&
+            this.window.localStorage.removeItem("game-started", true)
+          );
+        currentPosition -= 10;
+        blob_div.style.top = currentPosition + "px";
+      } else if (event.key === "s") {
+        const blob_div = this.document.getElementById("blob_div");
+        if (!blob_div) return console.log("Game not started");
+        let currentPosition = parseInt(blob_div.style.top);
+        let screenPosition = parseInt(this.window.screenX);
+        if (screenPosition >= currentPosition)
+          return (
+            this.window.location.reload() &&
+            this.window.localStorage.removeItem("game-started", true)
+          );
+        currentPosition += 10;
+        blob_div.style.top = currentPosition + "px";
       }
     });
   }, []);

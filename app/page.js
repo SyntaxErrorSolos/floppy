@@ -5,7 +5,7 @@ export default function Home() {
   useEffect(() => {
     const loader = document.getElementById("loader");
     const main_element = document.getElementById("main_element");
-    window.addEventListener("keypress", function (event) {
+    window.addEventListener("keydown", function (event) {
       if (event.key === "Enter") {
         console.log("Game started...");
         loader.innerText = "Loading game...";
@@ -20,10 +20,23 @@ export default function Home() {
         blob_div.style.position = "absolute";
         blob_div.style.top = `${Math.floor(Math.random() * 100)}px`;
         blob_div.style.left = `${Math.floor(Math.random() * 100)}px`;
+        blob_div.id = "blob_div";
         const blob = this.document.createElement("h1");
         blob.style.color = "black";
         blob.innerText = "Player";
         blob_div.appendChild(blob);
+      } else if (event.key === "d") {
+        const blob_div = this.document.getElementById("blob_div");
+        if (!blob_div) return console.log("Game not started");
+        let currentPosition = parseInt(blob_div.style.left, 10);
+        currentPosition += 10;
+        blob_div.style.left = currentPosition + "px";
+      } else if (event.key === "a") {
+        const blob_div = this.document.getElementById("blob_div");
+        if (!blob_div) return console.log("Game not started");
+        let currentPosition = parseInt(blob_div.style.left);
+        currentPosition -= 10;
+        blob_div.style.left = currentPosition + "px";
       }
     });
   }, []);

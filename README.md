@@ -1,15 +1,24 @@
 
 
 # Floppy
-- A 2D escape-the-castle game for the web. 
-   -## FAQ
+ A 2D escape-the-castle game for the web. 
 
-**__1:__** License?
-- The project is licensed under the `MIT` license. Please refer to the `LICENSE` file for more information.
-**__2:__** How can I move my character?
-- `WASD` is used for movement.
-**__3:__** Plot?
-- The game's plot is about "escaping" the castle. You will encounter multiple challenges on your way to freedom.
+
+## FAQ
+
+#### License?
+
+The project is licensed under the `MIT` license. Please refer to the `LICENSE` file for more information.
+
+#### How can I move my character?
+
+`WASD` is used for movement.
+
+#### Plot?
+
+The game's plot is about "escaping" the castle. You will encounter multiple challenges on your way to freedom.
+
+
 
 
 
@@ -33,7 +42,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd floppy
 ```
 
 Install dependencies

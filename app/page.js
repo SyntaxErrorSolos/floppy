@@ -26,8 +26,37 @@ export default function Home() {
         blob.style.color = "black";
         blob.innerText = "Player";
         blob_div.appendChild(blob);
-      }
 
+        //spawn "guards"
+        const guards = [];
+        for (let i = 0; i < 10; i++) {
+          const guard = document.createElement("div");
+          guard.style.backgroundColor = "red";
+          guard.style.borderRadius = "0.5rem";
+          guard.style.width = "70px";
+          guard.style.textAlign = "center";
+          guard.style.position = "absolute";
+          guard.innerText = "Guard";
+          guard.style.color = "white";
+          guard.style.top = `${Math.floor(Math.random() * 100)}px`;
+          guard.style.right = `${Math.floor(Math.random() * 100)}px`;
+          guard.id = `${guard}-${i}`;
+          guards.push(guard);
+          guards.forEach(() => {
+            let intTop = parseInt(guard.style.top);
+            let intRight = parseInt(guard.style.right);
+
+            intTop += Math.floor(Math.random() * 50);
+            intRight += Math.floor(Math.random() * 50)
+            guard.style.top = intTop + 'px'
+            guard.style.right = intRight + 'px'
+          });
+        }
+
+        for (const guard of guards) {
+          document.body.appendChild(guard);
+        }
+      }
       //movement
       else if (event.key === "d") {
         const blob_div = this.document.getElementById("blob_div");

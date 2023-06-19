@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 504 504" width="504" height="504">
+	<title>Pixel-Guards</title>
+	<defs>
+		<image  width="422" height="462" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaYAAAHOAgMAAACuuEWnAAAAAXNSR0IB2cksfwAAAAxQTFRFAAAAAAAA/wAAAAAA0S2cWgAAAAR0Uk5TAP//+sNHtAcAAAEtSURBVHic7d2xDcIwEEBRN4zgfTICBWkYgX0yAgUsCRSxZDkmle0I9H57Or3OLi+ErDg3bAp7oVAoFGoYdXs2aFm5MwqFQqGOo9Lb34Ta51AoFArVnWrOpO4bDoVCoVDdqcS0ViocCoVCoYZQr0/dmJxDoVAo1CCq6weCQqFQKBQKhUKhUCgUCoVCoVAoFAqFQqFQKBQKhUKhUCgUCoVCoVAoFAqFQqFQKBQKhUKhUCgUCoVCoVAoFAqFQqFQKBQKhUKhUCjU31DLXO+6zh+1YVreW0ShUCjUgdRUHOw7FdSlPLOXU/lyRKFQKBQKhUKhUCgUCoVCoVAoFAqFQqFQKBQKhUKhUCgUCoVCoVAoFAqFQqFQKBQKhUL9MpVXo/I21LflWMxQKBQKNYZ6A8XD5k+pbJwWAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+	</style>
+	<use id="Layer 1" href="#img1" x="49" y="28"/>
+</svg>

@@ -1,5 +1,6 @@
 "use client";
 import { useEffect } from "react";
+import { Image } from "next/image";
 
 export default function Home() {
   useEffect(() => {
@@ -30,14 +31,8 @@ export default function Home() {
         //spawn "guards"
         const guards = [];
         for (let i = 0; i < 10; i++) {
-          const guard = document.createElement("div");
-          guard.style.backgroundColor = "red";
-          guard.style.borderRadius = "0.5rem";
-          guard.style.width = "70px";
-          guard.style.textAlign = "center";
-          guard.style.position = "absolute";
-          guard.innerText = "Guard";
-          guard.style.color = "white";
+          const guard = document.createElement("image");
+          guard.setAttribute("src", "../public/Pixel-Guards.svg");
           guard.style.top = `${Math.floor(Math.random() * 100)}px`;
           guard.style.right = `${Math.floor(Math.random() * 100)}px`;
           guard.id = `${guard}-${i}`;
@@ -47,9 +42,9 @@ export default function Home() {
             let intRight = parseInt(guard.style.right);
 
             intTop += Math.floor(Math.random() * 50);
-            intRight += Math.floor(Math.random() * 50)
-            guard.style.top = intTop + 'px'
-            guard.style.right = intRight + 'px'
+            intRight += Math.floor(Math.random() * 50);
+            guard.style.top = intTop + "px";
+            guard.style.right = intRight + "px";
           });
         }
 

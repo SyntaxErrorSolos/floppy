@@ -5,12 +5,12 @@ export default function Home() {
   useEffect(() => {
     const loader = document.getElementById("loader");
     const main_element = document.getElementById("main_element");
+    const storage = window.localStorage.getItem("game-started");
 
-    function clearGame() {
-      window.localStorage.removeItem("game-started", true)
-      console.log("Cleared existing game.")
-    }
-    window.onload = clearGame;
+    window.addEventListener("load", function () {
+      window.localStorage.removeItem("game-started");
+      console.log("Cleared existing game.");
+    });
 
     window.addEventListener("keydown", function (event) {
       //starting
@@ -37,17 +37,15 @@ export default function Home() {
         //spawn "guards"
         const guards = [];
         for (let i = 0; i < 3; i++) {
-          const guard = document.createElement("div");
-          guard.style.backgroundColor = "red";
+          const guard = document.createElement("image");
+          guard.setAttribute("src", "../public/Pixel-Guards")
           guard.style.borderRadius = "0.5rem";
           guard.style.width = "70px";
           guard.style.textAlign = "center";
           guard.style.position = "absolute";
-          guard.innerText = "Guard";
-          guard.style.color = "white";
           guard.style.top = `${Math.floor(Math.random() * 100)}px`;
           guard.style.right = `${Math.floor(Math.random() * 100)}px`;
-          guard.id = `${guard}-${i}`;
+          guard.id = `guard-${i}`;
           guards.push(guard);
           guards.forEach(() => {
             let intTop = parseInt(guard.style.top);
@@ -97,12 +95,25 @@ export default function Home() {
         if (screenPosition >= currentPosition)
           return (
             this.window.location.reload() &&
-            this.window.localStorage.removeItem("game-started", true)
+            this.window.localStorage.removeItem("game-started")
           );
         currentPosition += 10;
         blob_div.style.top = currentPosition + "px";
       }
     });
+    if (storage !== null) {
+      const guards = document.getElementById("guard-*");
+      const player = document.getElementById("blob_div");
+
+      const div1Rect = guards.getBoundingClientRect();
+      const div2Rect = player.getBoundingClientRect();
+
+      if (div1Rect.intersects(div2Rect)) {
+        console.log("Collision detected");
+      } else {
+        return;
+      }
+    }
   }, []);
   return (
     <div id="main">

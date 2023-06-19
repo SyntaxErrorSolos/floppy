@@ -38,7 +38,7 @@ export default function Home() {
         const guards = [];
         for (let i = 0; i < 3; i++) {
           const guard = document.createElement("image");
-          guard.setAttribute("src", "../public/Pixel-Guards")
+          guard.setAttribute("src", "../public/Pixel-Guards");
           guard.style.borderRadius = "0.5rem";
           guard.style.width = "70px";
           guard.style.textAlign = "center";
@@ -102,16 +102,22 @@ export default function Home() {
       }
     });
     if (storage !== null) {
-      const guards = document.getElementById("guard-*");
+      const guards = document.querySelectorAll(".guard");
       const player = document.getElementById("blob_div");
 
-      const div1Rect = guards.getBoundingClientRect();
+      const div1Rects = [];
+      for (const guard of guards) {
+        const div1Rect = guard.getBoundingClientRect();
+        div1Rects.push(div1Rect);
+      }
+
       const div2Rect = player.getBoundingClientRect();
 
-      if (div1Rect.intersects(div2Rect)) {
-        console.log("Collision detected");
-      } else {
-        return;
+      for (const div1Rect of div1Rects) {
+        if (div1Rect.intersects(div2Rect)) {
+          console.log("Collision detected");
+          return;
+        }
       }
     }
   }, []);

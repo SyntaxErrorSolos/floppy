@@ -5,6 +5,13 @@ export default function Home() {
   useEffect(() => {
     const loader = document.getElementById("loader");
     const main_element = document.getElementById("main_element");
+
+    function clearGame() {
+      window.localStorage.removeItem("game-started", true)
+      console.log("Cleared existing game.")
+    }
+    window.onload = clearGame;
+
     window.addEventListener("keydown", function (event) {
       //starting
       if (event.key === "Enter") {
@@ -29,7 +36,7 @@ export default function Home() {
 
         //spawn "guards"
         const guards = [];
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 3; i++) {
           const guard = document.createElement("div");
           guard.style.backgroundColor = "red";
           guard.style.borderRadius = "0.5rem";
@@ -47,9 +54,9 @@ export default function Home() {
             let intRight = parseInt(guard.style.right);
 
             intTop += Math.floor(Math.random() * 50);
-            intRight += Math.floor(Math.random() * 50)
-            guard.style.top = intTop + 'px'
-            guard.style.right = intRight + 'px'
+            intRight += Math.floor(Math.random() * 50);
+            guard.style.top = intTop + "px";
+            guard.style.right = intRight + "px";
           });
         }
 
